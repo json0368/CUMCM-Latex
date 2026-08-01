@@ -1,0 +1,203 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8 Unicode
+%\documentclass{cumcmthesis}
+\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页，电子版提交的时候使用。
+
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{float}
+
+\newtcolorbox{framee}[1][]{
+  enhanced,
+  skin=enhancedlast jigsaw,
+  attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+  fonttitle=\bfseries\sffamily,
+  colbacktitle=blue!45,
+  colframe=red!50!black,
+  interior style={
+    top color=blue!10,
+    bottom color=red!10
+  },
+  boxed title style={
+    empty,
+    arc=0pt,
+    outer arc=0pt,
+    boxrule=0pt
+  },
+  underlay boxed title={
+    \fill[blue!45!white]
+      (title.north west) --
+      (title.north east) --
+      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) --
+      ([xshift=4mm,yshift=0.5mm]frame.north east) --
+      +(0mm,-1mm) --
+      (title.south west) -- cycle;
+    \fill[blue!45!white!50!black]
+      ([yshift=-0.5mm]frame.north west) --
+      +(-0.4,0) --
+      +(0,-0.3) -- cycle;
+    \fill[blue!45!white!50!black]
+      ([yshift=-0.5mm]frame.north east) --
+      +(0,-0.3) --
+      +(0.4,0) -- cycle;
+  },
+  title={2025 年建模比赛格式变化说明},
+  #1
+}
+
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{myblue}{rgb}{0.2,0.2,0.8}
+
+\lstdefinestyle{mypython}{
+  language=Python,
+  numbers=left,
+  numberstyle=\tiny\color{mygray},
+  keywordstyle=\color{myblue}\bfseries,
+  commentstyle=\color{mygreen}\itshape,
+  stringstyle=\color{red},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  extendedchars=true,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!10},
+  captionpos=b
+}
+\title{基于模拟退火的算法全国大学生数学建模竞赛}
+
+%%=======如下信息已经不再需要填写========
+\tihao{A}
+\baominghao{4321}
+\schoolname{XX大学}
+\membera{ }
+\memberb{ }
+\memberc{ }
+\supervisor{ }%辅导老师
+\yearinput{2023}
+\monthinput{9}
+\dayinput{8}
+%===================================
+
+\begin{document}
+
+ \maketitle
+ \begin{abstract}
+随着生鲜市场规模的持续扩大，蔬菜零售行业的竞争也愈加激烈。为帮助某商超改善经营模式，本文基于题目所给数据信息，建立数学模型进行分析，从而制定合理的蔬菜类商品动态定价与补货决策，提高商超收益。
+
+\textbf{针对问题一}，第一问首先计算出蔬菜品类的标准差、偏度系数、峰度系数等描述统计量。然后进行数据可视化处理，分析各蔬菜品类、单品蔬菜的销售量分布规律。结果可得各单品和各蔬菜品类的日销售量都呈现出不同程度的季节性波动，其中花叶类和辣椒类蔬菜日销售量的波动性较大。第二问引入Speanma 相关系数，以各蔬菜品类及单品蔬菜的日销售量为指标，进行相关性分析，求解得出除茄类外，其它五种品类蔬菜之间都呈现出显著的正相关关系。然后以单品的总销售量、每日最大销售量和日均销售量为指标，通过K-means++聚类算法将单品划分为热销、畅销、平销和滞销四大类，进行相关性分析，结果可得热销单品较其他单品呈现出高总销售量，高每日最大销售景和高日均销售景特点。
+
+\keywords{\TeX{}\quad  图片\quad   表格\quad  公式}
+\end{abstract}
+
+%目录  2019 明确不要目录，我觉得这个规定太好了
+%\tableofcontents
+
+%\newpage
+
+\section{问题背景}%1
+针对问题一
+针对问题一
+针对问题一
+\subsection{问题背景1}%1.1
+\subsubsection{问题背景2}%1.1.1
+\section{问题分析}
+\section{问题假设}
+1.假设1
+
+2.假设2
+\section{符号说明}
+\begin{table}[htbp]
+\centering
+\caption{符号说明表}
+\label{tab:symbols}
+\begin{tabular}{>{\ttfamily}cl}
+\toprule
+\textrm{符号} & 说明 \\
+\midrule
+$\alpha$     & 决策变量，666表示...... \\
+$\beta$      & 目标函数系数...... \\
+$x_{ij}$     & 从节点i到节点j的流量...... \\
+$C$          & 系统总成本...... \\
+$T$          & 时间周期...... \\
+$P_{max}$    & 最大生产能力...... \\
+$D_t$        & 第t期的需求量...... \\
+\bottomrule
+\end{tabular}
+\end{table}
+\section{模型一的建立与求解}
+\begin{table}[htbp]
+\centering
+\caption{蔬菜六大品类日销售量统计学指标表}
+\label{tab:stats}
+\begin{tabular}{l *{6}{c}} % 7列，第一列左对齐，后面6列居中
+\toprule
+\textbf{指标} & \textbf{花菜类} & \textbf{食用菌} & \textbf{花叶类} & \textbf{辣椒类} & \textbf{茄类} & \textbf{水生根茎类} \\
+\midrule
+最小值   & 1.00    & 0.00    & 0.00    & 0.00    & 0.00    & 0.00    \\
+最大值   & 186.16 & 511.14 & 1265.47 & 604.23 & 118.93 & 296.79 \\
+均值     & 38.16   & 69.18   & 181.42  & 83.69   & 20.50   & 37.08   \\
+中位数   & 33.86   & 57.28   & 172.11  & 72.54   & 18.27   & 30.05   \\
+偏度     & 1.47    & 2.95    & 2.71    & 3.06    & 1.55    & 2.48    \\
+峰度     & 7.03    & 19.85   & 27.36   & 20.78   & 8.15    & 14.95   \\
+标准差  & 22.90   & 48.20   & 87.65   & 53.82   & 13.57   & 31.43   \\
+\bottomrule
+\end{tabular}
+\end{table}
+数学建模必然涉及不少数学公式的使用。下面简单介绍一个可能用得上的数学环境。
+
+首先是行内公式，例如 $ \theta $ 是角度。行内公式使用 \verb|$  $| 包裹。
+
+行间公式不需要编号的可以使用 \verb|\[  \]| 包裹，例如
+\[
+E=mc^2
+\]
+
+\[
+E=mc^2 \tag{1}
+\]
+
+\begin{equation}
+S_k = E \left[ \left( \frac{x - \mu}{\sigma} \right)^3 \right] = \frac{\mu^3}{\sigma^3}
+\label{eq:energy}
+\end{equation}
+
+其中 $ E $ 是能量，$ m $ 是质量，$ c $ 是光速
+\section{模型二的建立与求解}
+\section{模型三的建立与求解}
+\section{模型四的建立与求解}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{figures/picture.png}
+    \caption{图片示例}
+    \label{fig:circuit-diagram}
+\end{figure}
+\section{模型的优点、缺点与推广}
+\subsection{模型的优点}
+\subsection{模型的缺点}
+\subsection{模型的推广}
+
+\newpage
+%参考文献
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{参考文献}
+\bibitem{1} Wang C, Jia Z, Yin Z, et al. Improving the accuracy of subseasonal forecasting of China precipitation with a machine learning approach[J]. Frontiers in Earth Science, 2021, 9: 659310.
+\bibitem{2} Jeong S J, HO C H O I, GIM H J U, et al. Phenology shifts at start vs. end of growing season in temperate vegetation over the Northern Hemisphere for the period 1982–2008[J]. Global change biology, 2011, 17(7): 2385-2399.
+\bibitem{3} 王春林.基于时空预测网络和双偏振雷达多参量的短临降雨预测研究[D].南京信息工程大学,2024.DOI:10.27248/d.cnki.gnjqc.2024.001409.
+\bibitem{4}李瑞英,任崇勇,张婷.影响牡丹花期的主要气象因素及预测方法[J].现代农业科技,2016,(13):244-245.
+\bibitem{5} 李德,陈文涛,乐章燕,等.基于随机森林算法和气象因子的砀山酥梨始花期预报[J].农业工程学报,2020,36(12):143-151.
+\bibitem{6}冯敏玉,孔萍,胡萍,等.基于花前物候利用灰色关联分析法建立油菜花期预报模型[J].中国农业气象,2021,42(11):929-938.
+\bibitem{7} 黄超,李巧萍,谢益军,等.机器学习方法在湖南夏季降水预测中的应用[J].大气科学学报,2022,45(02):191-202.DOI:10.13878/j.cnki.dqkxxb.20210903001.
+\end{thebibliography}
+
+\newpage
+%附录
+\begin{appendices}
+
+\section*{}
+
+\textbf{\textcolor[rgb]{0.98,0.00,0.00}{程序一:demo}}
+\lstinputlisting[style=mypython]{demo.py}
+\end{appendices}
+
+\end{document} 
