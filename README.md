@@ -7,7 +7,7 @@ xelatex --disable-installer -interaction=nonstopmode -halt-on-error -no-shell-es
 ```
 即可生成正文 pdf。
 
-如果 AI 工具使用说明模板，则替换最后的文件名：
+如果需要编译 AI 工具使用说明模板，则替换最后的文件名：
 ```
 xelatex --disable-installer -interaction=nonstopmode -halt-on-error -no-shell-escape -file-line-error "example.tex"
 ```
