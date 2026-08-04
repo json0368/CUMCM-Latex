@@ -1,0 +1,166 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8 Unicode
+%
+% 全国大学生数学建模竞赛 2026 年试行要求
+% 使用 AI 工具时，将本文件编译为：AI工具使用说明.pdf
+% 并将该 PDF 放入支撑材料压缩包中。
+%\documentclass{cumcmthesis}
+\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页，电子版提交的时候使用。
+
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{float}
+
+% 待填写提示：提交前请将花括号内的示例文字替换为真实内容。
+\newcommand{\placeholder}[1]{\textcolor{gray}{\textit{#1}}}
+
+\newtcolorbox{framee}[1][]{
+  enhanced,
+  skin=enhancedlast jigsaw,
+  attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+  fonttitle=\bfseries\sffamily,
+  colbacktitle=blue!45,
+  colframe=red!50!black,
+  interior style={
+    top color=blue!10,
+    bottom color=red!10
+  },
+  boxed title style={
+    empty,
+    arc=0pt,
+    outer arc=0pt,
+    boxrule=0pt
+  },
+  underlay boxed title={
+    \fill[blue!45!white]
+      (title.north west) --
+      (title.north east) --
+      +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm) --
+      ([xshift=4mm,yshift=0.5mm]frame.north east) --
+      +(0mm,-1mm) --
+      (title.south west) -- cycle;
+    \fill[blue!45!white!50!black]
+      ([yshift=-0.5mm]frame.north west) --
+      +(-0.4,0) --
+      +(0,-0.3) -- cycle;
+    \fill[blue!45!white!50!black]
+      ([yshift=-0.5mm]frame.north east) --
+      +(0,-0.3) --
+      +(0.4,0) -- cycle;
+  },
+  title={2025 年建模比赛格式变化说明},
+  #1
+}
+
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{myblue}{rgb}{0.2,0.2,0.8}
+
+\lstdefinestyle{mypython}{
+  language=Python,
+  numbers=left,
+  numberstyle=\tiny\color{mygray},
+  keywordstyle=\color{myblue}\bfseries,
+  commentstyle=\color{mygreen}\itshape,
+  stringstyle=\color{red},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  extendedchars=true,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!10},
+  captionpos=b
+}
+
+\title{AI工具使用说明}
+
+\begin{document}
+
+% 文件标题：不调用竞赛论文封面，只在说明文件正文顶部显示标题。
+{\centering\zihao{2}\bfseries AI工具使用说明\par}
+\vspace{1em}
+
+\section*{一、AI 工具使用概况}
+
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.67\textwidth}@{}}
+  \toprule
+  项目 & 填写内容 \\
+  \midrule
+  AI 工具名称 & \placeholder{例如：ChatGPT、Claude、通义千问、GitHub Copilot 等} \\
+  版本或模型型号 & \placeholder{填写具体版本、模型名称或发布日期；不确定时如实说明} \\
+  使用阶段 & \placeholder{例如：赛题理解、方案讨论、代码调试、语言润色、结果核验等} \\
+  具体使用目的 & \placeholder{说明使用该工具要解决的具体问题} \\
+  使用时间范围 & \placeholder{填写大致日期或竞赛阶段} \\
+  \bottomrule
+\end{tabular*}
+
+\section*{二、具体使用目的和环节}
+
+请按实际情况逐项填写，可复制本小节继续添加。
+
+\begin{enumerate}
+  \item \textbf{使用环节：} \placeholder{例如：对题意和变量含义进行初步梳理。}
+
+        \textbf{使用目的：} \placeholder{说明希望 AI 工具提供何种辅助。}
+
+        \textbf{实际使用情况：} \placeholder{说明输入了什么材料、进行了几轮交互，以及最终如何使用结果。}
+
+  \item \textbf{使用环节：} \placeholder{例如：对 Python 代码进行语法排查和调试。}
+
+        \textbf{使用目的：} \placeholder{说明具体代码问题或调试目标。}
+
+        \textbf{实际使用情况：} \placeholder{说明 AI 建议是否被采用，以及如何自行测试。}
+
+  \item \textbf{使用环节：} \placeholder{如无其他使用环节，请删除本项。}
+
+        \textbf{使用目的：} \placeholder{填写具体目的。}
+
+        \textbf{实际使用情况：} \placeholder{填写实际过程。}
+\end{enumerate}
+
+\section*{三、主要提示词与使用过程}
+
+\subsection*{3.1 提示词或指令示例}
+
+请列出具有代表性的提示词。提示词较多时，可将完整对话记录作为支撑材料的附加文件，并在此处说明文件名。
+
+\begin{quote}
+\placeholder{示例：请根据以下变量定义，检查模型约束条件是否存在维度不一致，并逐条说明理由。此处粘贴实际使用过的主要提示词、输入材料类型和必要的上下文。}
+\end{quote}
+
+\subsection*{3.2 使用过程说明}
+
+\begin{enumerate}[label=（\arabic*）]
+  \item \placeholder{说明首次提问的内容和 AI 返回结果的主要形式。}
+  \item \placeholder{说明是否进行了追问、补充约束、纠错或多轮比较。}
+  \item \placeholder{说明最终保留了哪些建议，哪些建议被舍弃，以及原因。}
+\end{enumerate}
+
+\section*{四、AI 输出的采纳、人工修改与核验}
+
+请对每一类 AI 输出分别说明，不要笼统写“已检查”。
+
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.67\textwidth}@{}}
+  \toprule
+  项目 & 具体说明 \\
+  \midrule
+  AI 输出内容 & \placeholder{概括 AI 给出的文字、公式、代码、思路或其他结果。} \\
+  采纳情况 & \placeholder{说明全部采纳、部分采纳或未采纳，并说明原因。} \\
+  人工修改 & \placeholder{说明参赛队对 AI 输出进行了哪些修改、重写、删减或替换。语言润色可简要说明。} \\
+  独立核验 & \placeholder{说明如何通过推导、数据、程序运行、对照文献或其他方式核验正确性。} \\
+  最终使用位置 & \placeholder{说明相关内容是否进入论文正文、附录、程序或仅作为讨论参考。} \\
+  \bottomrule
+\end{tabular*}
+
+\section*{五、真实性与责任声明}
+
+本参赛队承诺：本说明所列 AI 工具使用情况真实、完整；论文的核心建模、分析、结论及最终提交内容由参赛队负责完成；对 AI 生成或辅助生成的内容已进行必要的人工审查、修改和核验，并对提交作品的原创性、真实性和准确性承担全部责任。
+
+\vspace{2em}
+
+\begin{flushright}
+  参赛队：\placeholder{不填写学校名称、队员姓名等身份信息}\par
+  日期：\placeholder{年~~月~~日}
+\end{flushright}
+
+\end{document}
